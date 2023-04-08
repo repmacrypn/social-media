@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/navbar/Navbar';
+import HeaderContainer from './components/header/HeaderContainer';
+import { connect } from 'react-redux';
+import { initializeApp } from './redux/appReducer';
+import Preloader from './components/common components/preloader/Preloader';
+const DialogsContainer = lazy(() => import('./components/dialogs/DialogsContainer'));
+const ProfileContainer = lazy(() => import('./components/profile/ProfileContainer'));
+const LoginPage = lazy(() => import('./components/loginPage/LoginPage'));
+const SearchForFriendsContainer = lazy(() => import('./components/searchForFriends/SearchForFriendsContainer'));
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+
+  render() {
+    if (!this.props.initialized) return <Preloader />
+
+    return (
+      <div className='app-wrapper'>
+        <HeaderContainer />
+        <Navbar />
+        <div className='generalContent'>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path='/profile/:userId?' element={<ProfileContainer />} />
+              <Route path='/messages/*' element={<DialogsContainer />} />
+              <Route path='/searchForFriends/*' element={<SearchForFriendsContainer />} />
+              <Route path='/login' element={<LoginPage />} />
+            </Routes>
+          </Suspense>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    initialized: state.appReducer.initialized,
+  };
+};
+
+export default connect(mapStateToProps, { initializeApp })(App);
+
