@@ -1,0 +1,20 @@
+.navbar {
+    grid-area: n;
+    background-color: darkgreen;
+    padding: 0;
+    margin: 0px;
+}
+
+.list {
+    padding: 5px;
+}
+
+.list li {
+    list-style: none;
+    padding: 7px;
+    ;
+}
+
+.list li a {
+    text-decoration: none;
+}

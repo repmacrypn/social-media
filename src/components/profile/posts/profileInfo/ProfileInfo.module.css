@@ -1,0 +1,10 @@
+.largeProfilePhoto {
+    width: 300px;
+    padding: 10px;
+}
+
+.profileInfo {
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 10px;
+}

@@ -1,0 +1,14 @@
+.addPostFieldError {
+    border-color: red;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+button:disabled {
+    opacity: 0.35;
+}

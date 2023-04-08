@@ -1,0 +1,22 @@
+/* .inputError {
+    border-color: red;
+} */
+
+input {
+    display: block;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+/* .InputField {
+    padding: 5px;
+}
+ */
+button:disabled {
+    opacity: 0.35;
+}

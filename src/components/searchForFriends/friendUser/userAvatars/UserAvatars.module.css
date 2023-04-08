@@ -1,0 +1,18 @@
+.userAvatars {
+    margin-right: 10px;
+    border: 2px black solid;
+    border-radius: 3px;
+}
+
+.userAvatars img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+.userAvatars button {
+    display: block;
+    margin: 10px;
+    margin-top: 0;
+}
