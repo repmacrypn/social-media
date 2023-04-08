@@ -6,12 +6,22 @@ import { useParams } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
+    refreshProfilePage = () => {
         let userId = this.props.param.userId;
         if (!userId) userId = this.props.authorizedUserId;
 
         this.props.getProfilePage(userId);
         this.props.getProfileStatus(userId);
+    }
+
+    componentDidMount() {
+        this.refreshProfilePage();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.param.userId !== this.props.param.userId) {
+            this.refreshProfilePage();
+        }
     }
 
     render() {
