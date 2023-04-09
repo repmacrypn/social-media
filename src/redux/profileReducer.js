@@ -4,6 +4,7 @@ import { profileAPI } from '../api/api';
 const ADD_POST = 'profileReducer/ADD_POST';
 const SET_PROFILE_PAGE = 'profileReducer/SET_PROFILE_PAGE';
 const SET_PROFILE_STATUS = 'profileReducer/SET_PROFILE_STATUS';
+const SET_PROFILE_PHOTO = 'profileReducer/SET_PROFILE_PHOTO';
 
 const initialState = {
     posts: [
@@ -25,7 +26,15 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST: {
             return {
                 ...state,
-                posts: [...state.posts, { id: nanoid(), text: action.newPostMessage, likesCount: 0 }],
+                posts:
+                    [
+                        ...state.posts,
+                        {
+                            id: nanoid(),
+                            text: action.newPostMessage,
+                            likesCount: 0
+                        }
+                    ],
             };
         }
 
@@ -43,6 +52,16 @@ const profileReducer = (state = initialState, action) => {
             };
         }
 
+        case SET_PROFILE_PHOTO: {
+            return {
+                ...state,
+                profilePage: {
+                    ...state.profilePage,
+                    photos: action.photos,
+                },
+            };
+        }
+
         default: return state;
     }
 };
@@ -51,6 +70,7 @@ export const addPost = (newPostMessage) => ({ type: ADD_POST, newPostMessage });
 export const setProfilePage = (profilePage) => ({ type: SET_PROFILE_PAGE, profilePage, });
 
 const setProfileStatus = (profileStatus) => ({ type: SET_PROFILE_STATUS, profileStatus, });
+const setProfilePhoto = (photos) => ({ type: SET_PROFILE_PHOTO, photos, });
 
 export const getProfilePage = (id) => async dispatch => {
     const data = await profileAPI.getCurUserProfile(id);
@@ -66,6 +86,13 @@ export const updateProfileStatus = (profileStatus) => async (dispatch) => {
     const response = await profileAPI.updateProfileStatus(profileStatus);
     if (response.data.resultCode === 0) {
         dispatch(setProfileStatus(profileStatus));
+    }
+};
+
+export const saveProfilePhoto = (photoFile) => async (dispatch) => {
+    const response = await profileAPI.saveProfilePhoto(photoFile);
+    if (response.data.resultCode === 0) {
+        dispatch(setProfilePhoto(response.data.data.photos));
     }
 };
 
