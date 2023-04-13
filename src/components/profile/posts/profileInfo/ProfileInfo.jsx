@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import s from './ProfileInfo.module.css';
 import defaultLargeUserPhoto from '../../../../resources/images/defaultLargeUserPhoto.jpg';
 import UserInfo from "./userInfo/UserInfo";
+import UserInfoForm from "./userInfoForm/UserInfoForm";
 
-const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto }) => {
+const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto, saveProfileChanges }) => {
+    const [editMode, setEditMode] = useState(false);
+
     const onProfilePhotoChange = (event) => {
         if (event.target.files.length) {
             saveProfilePhoto(event.target.files[0]);
@@ -21,7 +24,19 @@ const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto }) => {
                 type='file'
                 onChange={onProfilePhotoChange} />
         }
-        <UserInfo profilePage={profilePage} />
+        {
+            editMode ?
+                <UserInfoForm
+                    saveProfileChanges={saveProfileChanges}
+                    setEditMode={setEditMode}
+                    profilePage={profilePage}
+                /> :
+                <UserInfo
+                    setEditMode={setEditMode}
+                    profilePage={profilePage}
+                    isOwner={isOwner}
+                />
+        }
     </div>;
 };
 

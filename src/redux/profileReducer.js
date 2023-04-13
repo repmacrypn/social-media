@@ -5,6 +5,7 @@ const ADD_POST = 'profileReducer/ADD_POST';
 const SET_PROFILE_PAGE = 'profileReducer/SET_PROFILE_PAGE';
 const SET_PROFILE_STATUS = 'profileReducer/SET_PROFILE_STATUS';
 const SET_PROFILE_PHOTO = 'profileReducer/SET_PROFILE_PHOTO';
+const SET_PROFILE_CHANGES = 'profileReducer/SET_PROFILE_CHANGES';
 
 const initialState = {
     posts: [
@@ -62,6 +63,16 @@ const profileReducer = (state = initialState, action) => {
             };
         }
 
+        case SET_PROFILE_CHANGES: {
+            return {
+                ...state,
+                profilePage: {
+                    ...state.profilePage,
+                    data: action.data,
+                },
+            };
+        }
+
         default: return state;
     }
 };
@@ -93,6 +104,19 @@ export const saveProfilePhoto = (photoFile) => async (dispatch) => {
     const response = await profileAPI.saveProfilePhoto(photoFile);
     if (response.data.resultCode === 0) {
         dispatch(setProfilePhoto(response.data.data.photos));
+    }
+};
+
+export const saveProfileChanges = (formData, setStatus, setSubmitting) => async (dispatch, getState) => {
+    const userId = getState().authReducer.id;
+    const response = await profileAPI.saveProfileChanges(formData);
+    if (response.data.resultCode === 0) {
+        dispatch(getProfilePage(userId));
+        setSubmitting(false);
+    } else {
+        setStatus(response.data.messages[0]);
+        setSubmitting(false);
+        return Promise.reject(response.data.messages[0]);
     }
 };
 

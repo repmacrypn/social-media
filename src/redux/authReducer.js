@@ -27,23 +27,25 @@ const authReducer = (state = initialState, action) => {
 
 export const setUserLoginData = data => ({ type: SET_USER_LOGIN_DATA, data });
 
-export const getUserLoginData = () => async dispatch => {
+export const getUserLoginData = () => async (dispatch) => {
     const data = await authAPI.getAuthUserProfile();
     if (data.resultCode === 0) {
         dispatch(setUserLoginData({ ...data.data, isAuth: true }));
     }
 };
 
-export const login = ({ email, password, rememberMe, setStatus, setSubmitting }) => dispatch => {
-    authAPI.login(email, password, rememberMe)
-        .then(data => {
-            data.resultCode === 0 ?
-                dispatch(getUserLoginData()) : setStatus(data.messages[0])
-        })
-        .finally(setSubmitting(false));
+export const login = (email, password, rememberMe, setStatus, setSubmitting) => async (dispatch) => {
+    const data = await authAPI.login(email, password, rememberMe)
+    if (data.resultCode === 0) {
+        dispatch(getUserLoginData());
+        setSubmitting(false);
+    } else {
+        setStatus(data.messages[0]);
+        setSubmitting(false);
+    }
 };
 
-export const logout = () => async dispatch => {
+export const logout = () => async (dispatch) => {
     const data = await authAPI.logout();
     if (data.resultCode === 0) {
         dispatch(setUserLoginData({ email: null, password: null, id: null, isAuth: false }));

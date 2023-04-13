@@ -8,8 +8,8 @@ export const LoginForm = ({ login }) => {
 
     const onSubmit = (values, { setSubmitting, setStatus, resetForm }) => {
         setSubmitting(true);
-        login({ ...values, setStatus: setStatus, setSubmitting: setSubmitting });
-        resetForm();
+        login(values.email, values.password, values.rememberMe, setStatus, setSubmitting);
+        /*   resetForm(); */
     };
 
     const { values, status, errors, touched, isSubmitting, handleChange, handleBlur, handleSubmit } = useFormik({
@@ -34,6 +34,7 @@ export const LoginForm = ({ login }) => {
                 errors={errors}
                 touched={touched}
                 values={values}
+                text="Email"
             />
             <InputField
                 id="password"
@@ -45,6 +46,7 @@ export const LoginForm = ({ login }) => {
                 errors={errors}
                 touched={touched}
                 values={values}
+                text="Password"
             />
             {
                 status &&

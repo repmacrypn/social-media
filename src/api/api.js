@@ -48,6 +48,10 @@ export const profileAPI = {
             }
         });
     },
+
+    saveProfileChanges(formData) {
+        return instance.put('profile', { ...formData });
+    },
 };
 
 export const authAPI = {

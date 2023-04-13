@@ -32,3 +32,17 @@ export const basicAddMessageSchema = yup.object().shape({
         .required('Required.')
 });
 
+export const basicProfileInfoChanger = yup.object().shape({
+    fullName: yup
+        .string()
+        .max(15, 'Nickname is too long - should be 15 chars maximum.'),
+    aboutMe: yup
+        .string()
+        .max(50, 'General info is too long - should be 50 chars maximum.'),
+    lookingForAJob: yup
+        .boolean(),
+    lookingForAJobDescription: yup
+        .string()
+        .max(50, 'Text is too long - should be 50 chars maximum.'),
+});
+

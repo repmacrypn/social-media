@@ -1,27 +1,32 @@
 import React from "react";
 import s from './UserInfo.module.css';
 
-const UserInfo = ({ profilePage }) => {
+const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
+    const onEditUserInfoClick = (event) => {
+        setEditMode(true);
+    };
+
     return <div className={s.profileInfo}>
         <div>
-            Hey!
+            Profile Information:
         </div>
         <div>
-            My name is {profilePage.fullName ? profilePage.fullName : 'none:)'}
+            Nickname: {profilePage.fullName || 'none:)'}
         </div>
         <div>
-            Some info about me: {profilePage.aboutMe ? profilePage.aboutMe : 'none:)'}
+            General info about me: {profilePage.aboutMe || 'none:)'}
         </div>
         <div>
-            Looking for a job description:
+            Info about the job i'm looking for:
             {profilePage.lookingForAJob ? profilePage.lookingForAJobDescription : 'none:)'}
         </div>
         <div className={s.contactsField}>
-            My contacts: {Object.keys(profilePage.contacts).map(key => {
-                return <Contact contactTitle={key} contactValue={profilePage.contacts[key]} />;
+            My contacts: {Object.keys(profilePage.contacts).map((key, i) => {
+                return <Contact key={i} contactTitle={key} contactValue={profilePage.contacts[key]} />;
             })}
         </div>
-    </div>
+        {isOwner && <button onClick={onEditUserInfoClick}>Edit</button>}
+    </div>;
 };
 
 const Contact = ({ contactTitle, contactValue }) => {

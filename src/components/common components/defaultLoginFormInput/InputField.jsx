@@ -1,10 +1,10 @@
 import React from "react";
 import s from './InputField.module.css';
 
-const InputField = ({ id, name, type, placeholder, handleChange, handleBlur, errors, touched, values }) => {
+const InputField = ({ id, name, type, placeholder, handleChange, handleBlur, errors, touched, values, text }) => {
     return (
-        <div className={s.InputField}>
-            <label htmlFor={type}>Email </label>
+        <span className={s.InputField}>
+            <label htmlFor={type}>{text} </label>
             <input
                 id={id}
                 name={name}
@@ -15,7 +15,7 @@ const InputField = ({ id, name, type, placeholder, handleChange, handleBlur, err
                 onBlur={handleBlur}
                 className={errors[name] && touched[name] ? s.inputError : ''} />
             {errors[name] && touched[name] && <p className={s.errorMessage}>{errors[name]}</p>}
-        </div>
+        </span>
     );
 };
 
