@@ -14,6 +14,7 @@ export const basicLoginSchema = yup.object().shape({
         .required('Password required.'),
     rememberMe: yup
         .boolean(),
+
 });
 
 export const basicAddPostSchema = yup.object().shape(

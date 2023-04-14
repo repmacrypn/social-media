@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <HashRouter>
+  <HashRouter>                     {/* используем BrowserRouter в любом случае кроме gh pages. Из-за Hash нельзя 404 NOT FOUND */}
     <React.StrictMode>
       <Provider store={store}>
         <App store={store} />

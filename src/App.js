@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
 import HeaderContainer from './components/header/HeaderContainer';
@@ -26,10 +26,12 @@ class App extends React.Component {
         <div className='generalContent'>
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>
+              <Route exact path='/' element={<Navigate to='/profile' />} />
               <Route path='/profile/:userId?' element={<ProfileContainer />} />
               <Route path='/messages/*' element={<DialogsContainer />} />
               <Route path='/searchForFriends/*' element={<SearchForFriendsContainer />} />
               <Route path='/login' element={<LoginPage />} />
+              <Route path='*' element={<div>404 NOT FOUND</div>} />  {/* работает только с BrowserRouter (у нас Hash) */}
             </Routes>
           </Suspense>
         </div>
