@@ -11,6 +11,12 @@ const ProfileContainer = lazy(() => import('./components/profile/ProfileContaine
 const LoginPage = lazy(() => import('./components/loginPage/LoginPage'));
 const SearchForFriendsContainer = lazy(() => import('./components/searchForFriends/SearchForFriendsContainer'));
 
+/* исправить переходы на страницы(чтобы показывало что они еще делаются, а не 404),
+  в том числе и страницу с сообщениями.Сделать возможным добавление постов только
+если isOwner, так же как и для изменения статуса.Попытаться исправить ситуацию с
+показыванием каптчи после повторного выхода. */
+
+
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp();
