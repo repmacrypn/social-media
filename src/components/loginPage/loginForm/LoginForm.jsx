@@ -24,65 +24,71 @@ export const LoginForm = ({ login, captchaURL }) => {
     });
 
     return (
-        <form onSubmit={handleSubmit} autoComplete="off">
-            <InputField
-                id="email"
-                name="email"
-                type="email"
-                placeholder={"Enter your email"}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                errors={errors}
-                touched={touched}
-                values={values}
-                text="Email"
-            />
-            <InputField
-                id="password"
-                name="password"
-                type="password"
-                placeholder={"Enter your password"}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                errors={errors}
-                touched={touched}
-                values={values}
-                text="Password"
-            />
-            {
-                status &&
-                <div className={s.errorMessage}>
-                    {status}
+        <div>
+            <form onSubmit={handleSubmit} autoComplete="off">
+                <InputField
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder={"Enter your email"}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    text="Email"
+                />
+                <InputField
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder={"Enter your password"}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    text="Password"
+                />
+                {
+                    status &&
+                    <div className={s.errorMessage}>
+                        {status}
+                    </div>
+                }
+                <div className={s.checkBoxField}>
+                    <input
+                        id="rememberMe"
+                        name="rememberMe"
+                        type="checkbox"
+                        onChange={handleChange}
+                        checked={values.rememberMe}
+                        onBlur={handleBlur}
+                        className={errors.rememberMe && touched.rememberMe ? s.inputError : ''} /> Remember Me?
                 </div>
-            }
-            <div className={s.checkBoxField}>
-                <input
-                    id="rememberMe"
-                    name="rememberMe"
-                    type="checkbox"
-                    onChange={handleChange}
-                    checked={values.rememberMe}
-                    onBlur={handleBlur}
-                    className={errors.rememberMe && touched.rememberMe ? s.inputError : ''} /> Remember Me?
+                {
+                    captchaURL &&
+                    <div>
+                        <img alt='captcha' src={captchaURL} />
+                        <InputField
+                            id="captcha"
+                            name="captcha"
+                            type="text"
+                            placeholder={"Input picture values"}
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            errors={errors}
+                            touched={touched}
+                            values={values}
+                        />
+                    </div>
+                }
+                <button disabled={isSubmitting} type="submit">Sign Up</button>
+            </form>
+            <div>
+                <p>Access Login: <strong>free@samuraijs.com</strong></p>
+                <p>Access Password: <strong>free</strong></p>
             </div>
-            {
-                captchaURL &&
-                <div>
-                    <img alt='captcha' src={captchaURL} />
-                    <InputField
-                        id="captcha"
-                        name="captcha"
-                        type="text"
-                        placeholder={"Input picture values"}
-                        handleChange={handleChange}
-                        handleBlur={handleBlur}
-                        errors={errors}
-                        touched={touched}
-                        values={values}
-                    />
-                </div>
-            }
-            <button disabled={isSubmitting} type="submit">Sign Up</button>
-        </form>
+        </div>
     );
 };
