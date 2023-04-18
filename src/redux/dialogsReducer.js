@@ -6,8 +6,8 @@ const initialState = {
     messagesWrapper: {
         messages: [
             { id: nanoid(), message: "yo" },
-            { id: nanoid(), message: "lalka" },
-            { id: nanoid(), message: "pipka" },
+            { id: nanoid(), message: "qq" },
+            { id: nanoid(), message: "lol" },
         ],
     },
 
