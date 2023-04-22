@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import '../../../common_styles/input.css';
+import s from './ProfileStatus.module.css';
 
 const ProfileStatus = React.memo(({ profileStatus, updateProfileStatus }) => {
     const [editMode, setEditMode] = useState(false);
@@ -26,15 +28,19 @@ const ProfileStatus = React.memo(({ profileStatus, updateProfileStatus }) => {
             value={status ? status : ''}
             onChange={onChangeHandler}
             autoFocus={true}
-            onBlur={deactivateStatusField} /> :
+            onBlur={deactivateStatusField}
+            className="inputField"
+            maxLength={30}
+        /> :
         elem = <span
+            className={s.profileStatus}
             onClick={activateStatusField}>
             {profileStatus ? profileStatus : 'defaultStatus'}
         </span>;
 
-    return <div>
-        {elem}
-    </div>;
+    return <>
+        <span className={s.status}>Status: </span>{elem}
+    </>;
 });
 
 export default ProfileStatus;

@@ -1,31 +1,40 @@
 import React from "react";
 import s from './UserInfo.module.css';
+import '../../../../../common_styles/button.css';
 
 const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
-    const onEditUserInfoClick = (event) => {
+    const onEditUserInfoClick = () => {
         setEditMode(true);
     };
 
     return <div className={s.profileInfo}>
-        <div>
+        <div className={s.mainAbstract}>
             Profile Information:
         </div>
-        <div>
-            Nickname: {profilePage.fullName || 'none:)'}
-        </div>
-        <div>
-            General info about me: {profilePage.aboutMe || 'none:)'}
-        </div>
-        <div>
-            Info about the job i'm looking for:
-            {profilePage.lookingForAJob ? profilePage.lookingForAJobDescription : 'none:)'}
-        </div>
-        <div className={s.contactsField}>
-            My contacts: {Object.keys(profilePage.contacts).map((key, i) => {
-                return <Contact key={i} contactTitle={key} contactValue={profilePage.contacts[key]} />;
-            })}
-        </div>
-        {isOwner && <button onClick={onEditUserInfoClick}>Edit</button>}
+        <ProfileInfoList
+            text='Nickname:'
+            listValue={profilePage.fullName || 'none:)'}
+        />
+        <ProfileInfoList
+            text='General info about me:'
+            listValue={profilePage.aboutMe || 'none:)'}
+        />
+        <ProfileInfoList
+            text="Info about the job i'm looking for:"
+            listValue={profilePage.lookingForAJob ? profilePage.lookingForAJobDescription : 'none:)'}
+        />
+        <ProfileInfoList
+            text="My contacts:"
+            listValue={
+                Object.keys(profilePage.contacts).map((key, i) => {
+                    return <Contact key={i} contactTitle={key} contactValue={profilePage.contacts[key]} />;
+                })
+            }
+        />
+        {isOwner && <button
+            onClick={onEditUserInfoClick}
+            className="defaultWebsitebutton"
+        >Edit</button>}
     </div>;
 };
 
@@ -33,6 +42,12 @@ const Contact = ({ contactTitle, contactValue }) => {
     return <div className={s.contact}>
         {contactTitle} - {contactValue || 'none:)'}
     </div>;
+};
+
+const ProfileInfoList = ({ text, listValue }) => {
+    return <div className={s.profileInfoList}>
+        <span className={s.title}>{text} </span>{listValue}
+    </div>
 };
 
 export default UserInfo;

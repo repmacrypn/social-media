@@ -14,16 +14,16 @@ const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto, saveProfileChange
     };
 
     return <div className={s.profileInfoAndPhoto}>
-        <img
-            className={s.largeProfilePhoto}
-            alt='large profile avatar'
-            src={profilePage.photos.large ? profilePage.photos.large : defaultLargeUserPhoto} />
-        {
-            isOwner &&
-            <input
-                type='file'
-                onChange={onProfilePhotoChange} />
-        }
+        <div className={s.imageField}>
+            <img
+                className={s.largeProfilePhoto}
+                alt='large profile avatar'
+                src={profilePage.photos.large ? profilePage.photos.large : defaultLargeUserPhoto}
+            />
+            {
+                isOwner && <InputWrapper onProfilePhotoChange={onProfilePhotoChange} />
+            }
+        </div>
         {
             editMode ?
                 <UserInfoForm
@@ -37,6 +37,18 @@ const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto, saveProfileChange
                     isOwner={isOwner}
                 />
         }
+    </div>;
+};
+
+const InputWrapper = ({ onProfilePhotoChange }) => {
+    return <div className={s.inputWrapper}>
+        <label className={s.inputFile}>
+            <input
+                type='file'
+                onChange={onProfilePhotoChange}
+            />
+            <span>Update photo</span>
+        </label>
     </div>;
 };
 
