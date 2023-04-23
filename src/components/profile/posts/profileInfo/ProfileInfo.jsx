@@ -20,9 +20,7 @@ const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto, saveProfileChange
                 alt='large profile avatar'
                 src={profilePage.photos.large ? profilePage.photos.large : defaultLargeUserPhoto}
             />
-            {
-                isOwner && <InputWrapper onProfilePhotoChange={onProfilePhotoChange} />
-            }
+            {isOwner && <InputWrapper onProfilePhotoChange={onProfilePhotoChange} />}
         </div>
         {
             editMode ?

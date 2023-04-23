@@ -1,14 +1,7 @@
-.addPostFieldError {
-    border-color: red;
+.buttonField {
+    margin: 5px 4px 10px;
 }
 
-.errorMessage {
-    color: red;
-    font-size: 10px;
-    padding: 0;
-    margin: 0;
-}
-
-button:disabled {
-    opacity: 0.35;
+.formWrapper {
+    border-bottom: 1px dashed black;
 }

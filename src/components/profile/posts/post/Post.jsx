@@ -9,9 +9,12 @@ const Post = ({ smallProfilePhoto, likesCount, text }) => {
                 src={smallProfilePhoto ? smallProfilePhoto : defaultSmallUserPhoto}
                 alt='profile avatar'
                 className={s.avatar} />
-            <span className={s.postText}>{text} </span>
+            <div
+                className={s.postText}>
+                {text}
+            </div>
         </div>
-        <div className={s.likesItem}> likes: {likesCount}</div>
+        <div className={s.likesField}> likes: {likesCount}</div>
     </div>;
 };
 

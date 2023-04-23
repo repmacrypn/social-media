@@ -1,7 +1,9 @@
 import React from "react";
 import s from './AddPostForm.module.css';
+import '../../../../common_styles/button.css';
 import { useFormik } from "formik";
 import { basicAddPostSchema } from "../../../../schemas/yupSchema";
+import InputField from "../../../common components/defaultLoginFormInput/InputField";
 
 export const AddPostForm = ({ addPost }) => {
     const onSubmit = (values, actions) => {
@@ -18,23 +20,23 @@ export const AddPostForm = ({ addPost }) => {
     });
 
     return (
-        <form onSubmit={handleSubmit} autoComplete="off">
-            <div className={s.textareaField}>
-                <textarea
-                    name="addPostField"
-                    id="addPostField"
-                    type="textarea"
-                    onChange={handleChange}
-                    value={values.addPostField}
-                    placeholder="Share your news:)"
-                    onBlur={handleBlur}
-                    className={errors.addPostField && touched.addPostField ? s.addPostFieldError : ''}
-                >
-                </textarea>
-                {errors.addPostField && touched.addPostField && <p className={s.errorMessage}>{errors.addPostField}</p>}
-            </div>
-            <div>
-                <button disabled={isSubmitting} type="submit">add post</button>
+        <form className={s.formWrapper} onSubmit={handleSubmit} autoComplete="off">
+            <InputField
+                id="addPostField"
+                name="addPostField"
+                type="textarea"
+                placeholder={"Share your news:)"}
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                errors={errors}
+                touched={touched}
+                values={values}
+            />
+            <div className={s.buttonField}>
+                <button
+                    className='defaultWebsitebutton'
+                    disabled={isSubmitting}
+                    type="submit">Add post</button>
             </div>
         </form>
     );

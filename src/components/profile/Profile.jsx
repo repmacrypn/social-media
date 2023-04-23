@@ -20,7 +20,8 @@ const Profile = ({ profilePage, profileStatus, updateProfileStatus, saveProfileP
             saveProfilePhoto={saveProfilePhoto}
             profilePage={profilePage}
         />
-        <PostsContainer smallProfilePhoto={profilePage.photos.small} />
+        {isOwner &&
+            <PostsContainer smallProfilePhoto={profilePage.photos.small} />}
     </main>;
 };
 

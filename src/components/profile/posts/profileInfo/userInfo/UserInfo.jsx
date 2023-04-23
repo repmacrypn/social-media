@@ -8,9 +8,7 @@ const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
     };
 
     return <div className={s.profileInfo}>
-        <div className={s.mainAbstract}>
-            Profile Information:
-        </div>
+        <MainAbstract />
         <ProfileInfoList
             text='Nickname:'
             listValue={profilePage.fullName || 'none:)'}
@@ -20,7 +18,7 @@ const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
             listValue={profilePage.aboutMe || 'none:)'}
         />
         <ProfileInfoList
-            text="Info about the job i'm looking for:"
+            text="Info about the job:"
             listValue={profilePage.lookingForAJob ? profilePage.lookingForAJobDescription : 'none:)'}
         />
         <ProfileInfoList
@@ -47,7 +45,13 @@ const Contact = ({ contactTitle, contactValue }) => {
 const ProfileInfoList = ({ text, listValue }) => {
     return <div className={s.profileInfoList}>
         <span className={s.title}>{text} </span>{listValue}
-    </div>
+    </div>;
+};
+
+export const MainAbstract = () => {
+    return <div className={s.mainAbstract}>
+        Profile Information:
+    </div>;
 };
 
 export default UserInfo;

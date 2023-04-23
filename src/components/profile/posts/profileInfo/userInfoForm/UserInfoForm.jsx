@@ -1,8 +1,11 @@
 import React from "react";
-import s from './UserInfoForm.module.css';
+import s from '../userInfo/UserInfo.module.css';
 import { useFormik } from 'formik';
 import { basicProfileInfoChanger } from "../../../../../schemas/yupSchema";
 import InputField from "../../../../common components/defaultLoginFormInput/InputField";
+import '../../../../../common_styles/button.css';
+import '../../../../../common_styles/validationErrors.css';
+import { MainAbstract } from "../userInfo/UserInfo";
 
 const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
     const onSubmit = (values, { setSubmitting, setStatus }) => {
@@ -37,70 +40,59 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
     });
 
     return <form onSubmit={handleSubmit} autoComplete="off" className={s.profileInfo}>
-        <div>
-            Profile Information:
-        </div>
-        <div>
-            <InputField
-                id="fullName"
-                name="fullName"
-                type="text"
-                placeholder={"Enter nickName"}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                errors={errors}
-                touched={touched}
-                values={values}
-                text="Nickname: "
-            />
-        </div>
-        <div>
-            <InputField
-                id="aboutMe"
-                name="aboutMe"
-                type="textarea"
-                placeholder={"Enter smth about you"}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                errors={errors}
-                touched={touched}
-                values={values}
-                text="General info about me: "
-            />
-        </div>
-        <div>
-            <label>
-                Looking for a job?
-                <input
-                    id="lookingForAJob"
-                    name="lookingForAJob"
-                    type="checkbox"
-                    onChange={handleChange}
-                    checked={values.lookingForAJob}
-                    onBlur={handleBlur}
-                    className={errors.lookingForAJob && touched.lookingForAJob ? s.inputError : ''}
-                />
-            </label>
-        </div>
-        <div>
-            <InputField
-                id="lookingForAJobDescription"
-                name="lookingForAJobDescription"
-                type="textarea"
-                placeholder={"Describe the job"}
-                handleChange={handleChange}
-                handleBlur={handleBlur}
-                errors={errors}
-                touched={touched}
-                values={values}
-                text="Info about the job i'm looking for: "
-            />
-        </div>
-        <div className={s.contactsField}>
-            My contacts:
+        <MainAbstract />
+        <InputField
+            id="fullName"
+            name="fullName"
+            type="text"
+            placeholder={"Enter nickName"}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            errors={errors}
+            touched={touched}
+            values={values}
+            text="Nickname: "
+        />
+        <InputField
+            id="aboutMe"
+            name="aboutMe"
+            type="textarea"
+            placeholder={"Enter smth about you"}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            errors={errors}
+            touched={touched}
+            values={values}
+            text="General info about me: "
+        />
+        <InputField
+            id="lookingForAJob"
+            name="lookingForAJob"
+            type="checkbox"
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            errors={errors}
+            touched={touched}
+            values={values}
+            text="Looking for a job? "
+        />
+        <InputField
+            id="lookingForAJobDescription"
+            name="lookingForAJobDescription"
+            type="textarea"
+            placeholder={"Describe the job"}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            errors={errors}
+            touched={touched}
+            values={values}
+            text="Info about the job: "
+        />
+        <div className={s.profileInfoList}>
+            <span className={s.title}>My contacts: </span>
             {
                 Object.keys(profilePage.contacts).map((key, i) => {
-                    return <div key={i}>
+                    return <div className={s.contact} key={i}>
                         {key} - <input
                             id={key}
                             name={`contacts.${key}`}
@@ -108,13 +100,14 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
                             placeholder={`Input ${key}`}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={errors.contacts?.[key] && touched.contacts?.[key] ? s.inputError : ''}
+                            className={errors.contacts?.[key] && touched.contacts?.[key] ? 'inputError' : 'inputField'}
                             value={values.contacts[key]}
+                            maxLength={50}
                         />
                         {
                             errors.contacts?.[key] &&
                             touched.contacts?.[key] &&
-                            <p className={s.errorMessage}>{errors.contacts?.[key]}</p>
+                            <div className='errorMessage'>{errors.contacts?.[key]}</div>
                         }
                     </div>;
                 })
@@ -122,11 +115,18 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
         </div>
         {
             status &&
-            <div className={s.errorMessage}>
+            <div className={'errorMessage'}>
                 {status}
             </div>
         }
-        <button disabled={isSubmitting} type="submit">Save</button>
+        <div>
+            <button
+                className="defaultWebsitebutton"
+                disabled={isSubmitting}
+                type="submit">
+                Save
+            </button>
+        </div>
     </form>;
 };
 

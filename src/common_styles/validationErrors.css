@@ -1,0 +1,12 @@
+.errorMessage {
+    color: rgb(250, 82, 82);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 2px;
+    border: 2px solid rgb(250, 82, 82);
+    max-width: 300px;
+}

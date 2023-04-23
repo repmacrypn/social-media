@@ -5,7 +5,9 @@ import { AddPostForm } from "./addPostForm/AddPostForm";
 
 const Posts = ({ addPost, posts, smallProfilePhoto }) => {
     return <div className={s.posts}>
-        My posts
+        <div className={s.myPostsAbstract}>
+            My posts
+        </div>
         <AddPostForm addPost={addPost} />
         {
             posts.map((obj, i) => {
