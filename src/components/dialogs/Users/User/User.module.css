@@ -1,7 +1,21 @@
-.active {
-    color: gold;
+.linkWrapper a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 5px;
+    border-bottom: 1px solid black;
 }
 
-.nonActive {
-    color: lavender;
+.nonActiveUser {
+    color: rgb(0, 0, 0);
+    font-weight: 450;
+}
+
+.nonActiveUser:hover {
+    color: rgb(76, 8, 139);
+}
+
+.activeUser {
+    font-weight: bold;
+    color: rgb(76, 8, 139);
+    background-color: rgb(195, 194, 194);
 }

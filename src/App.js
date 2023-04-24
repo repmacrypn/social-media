@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import './common_styles/demoMessageAlert.css';
 import Navbar from './components/navbar/Navbar';
 import HeaderContainer from './components/header/HeaderContainer';
 import { connect } from 'react-redux';
@@ -31,14 +32,15 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className='generalContent'>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div className='demoMessageAlert'>Loading...</div>}>
             <Routes>
               <Route exact path='/' element={<Navigate to='/profile' />} />
               <Route path='/profile/:userId?' element={<ProfileContainer />} />
               <Route path='/messages/*' element={<DialogsContainer />} />
               <Route path='/searchForFriends/*' element={<SearchForFriendsContainer />} />
               <Route path='/login' element={<LoginPage />} />
-              <Route path='*' element={<div>404 NOT FOUND</div>} />  {/* работает только с BrowserRouter (у нас Hash) */}
+              <Route path='*' element={<div className='demoMessageAlert'>In Progress xxD</div>} />
+              {/* работает только с BrowserRouter (у нас Hash) */}
             </Routes>
           </Suspense>
         </div>

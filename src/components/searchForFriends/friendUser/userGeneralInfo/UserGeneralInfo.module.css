@@ -2,3 +2,19 @@
     border: solid black 2px;
     border-radius: 3px;
 }
+
+.userNameWrapper {
+    margin: 5px;
+}
+
+.userStatusWrapper {
+    margin: 5px;
+}
+
+.userName {
+    font-weight: bold;
+}
+
+.userStatus {
+    font-weight: bold;
+}

@@ -1,7 +1,10 @@
 import React from "react";
-import s from './AddMessageForm.module.css';
+import '../../../../common_styles/button.css';
 import { useFormik } from "formik";
 import { basicAddMessageSchema } from "../../../../schemas/yupSchema";
+import InputField from "../../../common components/defaultLoginFormInput/InputField";
+import { DefautButton } from "../../../profile/posts/profileInfo/userInfoForm/UserInfoForm";
+import s from './AddMessageForm.module.css'
 
 const AddMessageForm = ({ addMessage }) => {
 
@@ -20,25 +23,20 @@ const AddMessageForm = ({ addMessage }) => {
 
     return (
         <form onSubmit={handleSubmit} autoComplete="off">
-            <div className={s.textareaField}>
-                <textarea
-                    name="addMessageField"
+            <div className={s.inputWrapper}>
+                <InputField
                     id="addMessageField"
-                    type="textarea"
-                    onChange={handleChange}
-                    value={values.addMessageField}
-                    placeholder="Input your message!"
-                    onBlur={handleBlur}
-                    className={errors.addMessageField && touched.addMessageField ?
-                        s.addMessageFieldError : ''}
-                >
-                </textarea>
-                {errors.addMessageField && touched.addMessageField &&
-                    <p className={s.errorMessage}>{errors.addMessageField}</p>}
+                    name="addMessageField"
+                    type="text"
+                    placeholder={"Your message:)"}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                />
             </div>
-            <div>
-                <button disabled={isSubmitting} type="submit">Send Message</button>
-            </div>
+            <DefautButton text='Send message!' isSubmitting={isSubmitting} />
         </form>
     );
 };

@@ -1,9 +1,7 @@
-.profileStatus:hover {
-    cursor: pointer;
-    color: rgb(76, 8, 139);
-}
-
-.status {
-    font-weight: bold;
+.demoMessageAlert {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    letter-spacing: 1px;
+    margin: 10px;
 }

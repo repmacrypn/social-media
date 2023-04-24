@@ -2,3 +2,9 @@
     display: grid;
     grid-template-columns: 2fr 10fr;
 }
+
+.demo {
+    padding-top: 7px;
+    margin-top: 30px;
+    border-top: 3px solid black;
+}

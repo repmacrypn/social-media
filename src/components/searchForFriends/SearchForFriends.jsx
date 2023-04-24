@@ -3,6 +3,7 @@ import FriendUser from "./friendUser/FriendUser";
 import s from './SearchForFriends.module.css';
 import Preloader from "../common components/preloader/Preloader";
 import { processPaginatorData } from "../../utilites/paginatorLogic";
+import { MainAbstract } from '../profile/posts/profileInfo/userInfo/UserInfo';
 
 function SearchForFriends({ isFetching, currentPage,
     changeCurrentPageOnClick, follow, unfollow, friends,
@@ -15,18 +16,14 @@ function SearchForFriends({ isFetching, currentPage,
 
     return (
         <div className={s.SFFPageWrapper}>
-            <h2>Users</h2>
+            <MainAbstract text='Find Friends' />
             <div>
-                {
-                    processPaginatorData(totalCount, count, currentPage).map(pageN => {
-                        return <span
-                            className={pageN === currentPage ? s.selectedButton : ''}
-                            key={pageN}
-                            onClick={() => changeCurrentPageOnClick(pageN)}>
-                            {pageN}
-                        </span>;
-                    })
-                }
+                <PaginatorButtons
+                    totalCount={totalCount}
+                    count={count}
+                    currentPage={currentPage}
+                    changeCurrentPageOnClick={changeCurrentPageOnClick}
+                />
                 {
                     friends.map((obj) => {
                         return <FriendUser
@@ -44,5 +41,21 @@ function SearchForFriends({ isFetching, currentPage,
         </div>
     );
 }
+
+const PaginatorButtons = ({ totalCount, count, currentPage, changeCurrentPageOnClick }) => {
+    return <div className={s.paginatorButtonWrapper}>
+        {
+            processPaginatorData(totalCount, count, currentPage).map(pageN => {
+                return <span
+                    className={pageN === currentPage ?
+                        s.selectedPaginatorButton : s.paginatorButton}
+                    key={pageN}
+                    onClick={() => changeCurrentPageOnClick(pageN)}>
+                    {pageN}
+                </span>;
+            })
+        }
+    </div>;
+};
 
 export default SearchForFriends;

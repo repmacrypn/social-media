@@ -4,6 +4,7 @@ import '../../../../common_styles/button.css';
 import { useFormik } from "formik";
 import { basicAddPostSchema } from "../../../../schemas/yupSchema";
 import InputField from "../../../common components/defaultLoginFormInput/InputField";
+import { DefautButton } from "../profileInfo/userInfoForm/UserInfoForm";
 
 export const AddPostForm = ({ addPost }) => {
     const onSubmit = (values, actions) => {
@@ -24,7 +25,7 @@ export const AddPostForm = ({ addPost }) => {
             <InputField
                 id="addPostField"
                 name="addPostField"
-                type="textarea"
+                type="text"
                 placeholder={"Share your news:)"}
                 handleChange={handleChange}
                 handleBlur={handleBlur}
@@ -33,10 +34,7 @@ export const AddPostForm = ({ addPost }) => {
                 values={values}
             />
             <div className={s.buttonField}>
-                <button
-                    className='defaultWebsitebutton'
-                    disabled={isSubmitting}
-                    type="submit">Add post</button>
+                <DefautButton text='Add post' isSubmitting={isSubmitting} />
             </div>
         </form>
     );

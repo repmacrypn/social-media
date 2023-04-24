@@ -8,7 +8,7 @@ const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
     };
 
     return <div className={s.profileInfo}>
-        <MainAbstract />
+        <MainAbstract text='Profile Information' />
         <ProfileInfoList
             text='Nickname:'
             listValue={profilePage.fullName || 'none:)'}
@@ -29,10 +29,13 @@ const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
                 })
             }
         />
-        {isOwner && <button
-            onClick={onEditUserInfoClick}
-            className="defaultWebsitebutton"
-        >Edit</button>}
+        {isOwner &&
+            <button
+                onClick={onEditUserInfoClick}
+                className="defaultWebsitebutton"
+            >
+                Edit
+            </button>}
     </div>;
 };
 
@@ -48,9 +51,9 @@ const ProfileInfoList = ({ text, listValue }) => {
     </div>;
 };
 
-export const MainAbstract = () => {
+export const MainAbstract = ({ text }) => {
     return <div className={s.mainAbstract}>
-        Profile Information:
+        {text}
     </div>;
 };
 

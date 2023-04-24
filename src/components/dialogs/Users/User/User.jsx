@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import s from './User.module.css';
 
 const User = ({ index, name }) => {
-    return <div className={s.item}>
+    return <div className={s.linkWrapper}>
         <NavLink
-            className={({ isActive }) => `${isActive ? s.active : s.nonActive}`}
+            className={({ isActive }) => `${isActive ? s.activeUser : s.nonActiveUser}`}
             to={`/messages/${index}`}>
             {name}
         </NavLink>

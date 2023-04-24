@@ -56,7 +56,7 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
         <InputField
             id="aboutMe"
             name="aboutMe"
-            type="textarea"
+            type="text"
             placeholder={"Enter smth about you"}
             handleChange={handleChange}
             handleBlur={handleBlur}
@@ -79,7 +79,7 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
         <InputField
             id="lookingForAJobDescription"
             name="lookingForAJobDescription"
-            type="textarea"
+            type="text"
             placeholder={"Describe the job"}
             handleChange={handleChange}
             handleBlur={handleBlur}
@@ -119,15 +119,17 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
                 {status}
             </div>
         }
-        <div>
-            <button
-                className="defaultWebsitebutton"
-                disabled={isSubmitting}
-                type="submit">
-                Save
-            </button>
-        </div>
+        <DefautButton text='Save' isSubmitting={isSubmitting} />
     </form>;
+};
+
+export const DefautButton = ({ text, isSubmitting }) => {
+    return <button
+        className="defaultWebsitebutton"
+        disabled={isSubmitting}
+        type="submit">
+        {text}
+    </button>
 };
 
 export default UserInfoForm;

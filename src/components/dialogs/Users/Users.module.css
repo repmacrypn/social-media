@@ -1,3 +1,9 @@
-.dialogItems {
+.dialogUsers {
     padding: 10px;
+    border-right: 1px dashed black;
+}
+
+.mainAbsractWrapper {
+    border-bottom: 1px solid rgb(76, 8, 139);
+    padding: 0 0 10px;
 }

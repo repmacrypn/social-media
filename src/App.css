@@ -14,10 +14,7 @@
 
 .app-wrapper .generalContent {
   grid-area: c;
-  background-color:
-    rgb(249, 236, 253);
-  /* rgb(214, 126, 236); */
+  background-color: rgb(243, 234, 246);
   padding: 10px;
   border-radius: 5px;
-  font-family: Arial, Helvetica, sans-serif;
 }

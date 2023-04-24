@@ -1,3 +1,20 @@
-.selectedButton {
-    font-weight: bold;
+.paginatorButtonWrapper {
+    margin: 5px 0 5px 2px;
+}
+
+.paginatorButtonWrapper span {
+    border-right: 1px solid black;
+    padding: 0 2px;
+}
+
+.paginatorButtonWrapper:first-child {
+    border-left: 1px solid black;
+}
+
+.selectedPaginatorButton {
+    color: rgb(76, 8, 139);
+}
+
+.paginatorButton:hover {
+    cursor: pointer;
 }
