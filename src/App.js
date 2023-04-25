@@ -27,12 +27,15 @@ class App extends React.Component {
         <div className='generalContent'>
           <Suspense fallback={<div className='demoMessageAlert'>Loading...</div>}>
             <Routes>
-              <Route exact path='/' element={<Navigate to='/profile' />} />
+              <Route path='/social-media' element={<Navigate to='/profile' />} />
               <Route path='/profile/:userId?' element={<ProfileContainer />} />
               <Route path='/messages/*' element={<DialogsContainer />} />
+              <Route path='/news/*' element={<div className='demoMessageAlert'>In Progress xxD</div>} />
+              <Route path='/music/*' element={<div className='demoMessageAlert'>In Progress xxD</div>} />
+              <Route path='/settings/*' element={<div className='demoMessageAlert'>In Progress xxD</div>} />
               <Route path='/searchForFriends/*' element={<SearchForFriendsContainer />} />
               <Route path='/login' element={<LoginPage />} />
-              <Route path='*' element={<div className='demoMessageAlert'>In Progress xxD</div>} />
+              <Route path='*' element={<div className='demoMessageAlert'>404 NOT FOUND</div>} />
               {/* работает только с BrowserRouter (у нас Hash) */}
             </Routes>
           </Suspense>
