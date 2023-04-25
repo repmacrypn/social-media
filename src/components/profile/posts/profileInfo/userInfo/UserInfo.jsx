@@ -32,7 +32,7 @@ const UserInfo = ({ profilePage, isOwner, setEditMode }) => {
         {isOwner &&
             <button
                 onClick={onEditUserInfoClick}
-                className="defaultWebsitebutton"
+                className="defaultWebsiteButton"
             >
                 Edit
             </button>}

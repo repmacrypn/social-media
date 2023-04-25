@@ -36,7 +36,7 @@ const AddMessageForm = ({ addMessage }) => {
                     values={values}
                 />
             </div>
-            <DefautButton text='Send message!' isSubmitting={isSubmitting} />
+            <DefautButton text='Send!' isSubmitting={isSubmitting} />
         </form>
     );
 };

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../../../common_styles/input.css';
 import s from './ProfileStatus.module.css';
 
-const ProfileStatus = React.memo(({ profileStatus, updateProfileStatus }) => {
+const ProfileStatus = React.memo(({ profileStatus, updateProfileStatus, isOwner }) => {
     const [editMode, setEditMode] = useState(false);
     const [status, setProfileStatus] = useState(profileStatus);
 
@@ -23,7 +23,7 @@ const ProfileStatus = React.memo(({ profileStatus, updateProfileStatus }) => {
 
     let elem;
 
-    editMode ?
+    editMode && isOwner ?
         elem = <input
             value={status ? status : ''}
             onChange={onChangeHandler}

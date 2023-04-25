@@ -21,7 +21,7 @@
 }
 
 .logWrapper a:hover {
-    color: salmon;
+    color: rgb(89, 235, 228);
 }
 
 .logOutField {
@@ -30,6 +30,6 @@
 }
 
 .logOutField:hover {
-    color: salmon;
+    color: rgb(89, 235, 228);
     cursor: pointer;
 }

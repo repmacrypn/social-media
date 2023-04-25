@@ -7,7 +7,7 @@ export const basicLoginSchema = yup.object().shape({
         .required('Email required.'),
     password: yup
         .string()
-        .min(3, 'Password is too short - should be 5 chars minimum.')
+        .min(3, 'Password is too short - should be 3 chars minimum.')
         .required('Password required.'),
     rememberMe: yup
         .boolean(),

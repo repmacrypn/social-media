@@ -1,7 +1,10 @@
-.active {
-    color: gold;
+a.active {
+    font-weight: 650;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 0cqi;
 }
 
 .nonActive {
-    color: lavender;
+    color: rgb(243, 234, 246);
 }

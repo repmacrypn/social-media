@@ -1,0 +1,56 @@
+.inputTypeFile {
+    position: relative;
+    display: inline-block;
+}
+
+.inputTypeFile span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 470;
+    vertical-align: middle;
+    color: black;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgb(89, 235, 228);
+    line-height: 13px;
+    height: 42px;
+    padding: 12px 20px 0 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+}
+
+.inputTypeFile input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Focus */
+.inputTypeFile input[type=file]:focus+span {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+}
+
+/* Hover/active */
+.inputTypeFile:hover span {
+    background-color: rgb(56, 201, 193);
+    color: white;
+}
+
+.inputTypeFile:active span {
+    background-color: rgb(29, 152, 146);
+    color: white;
+}
+
+/* Disabled */
+.inputTypeFile input[type=file]:disabled+span {
+    background-color: #eee;
+}

@@ -113,23 +113,24 @@ const UserInfoForm = ({ profilePage, setEditMode, saveProfileChanges }) => {
                 })
             }
         </div>
-        {
-            status &&
-            <div className={'errorMessage'}>
-                {status}
-            </div>
-        }
+        <ServerErrorMessage status={status} />
         <DefautButton text='Save' isSubmitting={isSubmitting} />
     </form>;
 };
 
 export const DefautButton = ({ text, isSubmitting }) => {
     return <button
-        className="defaultWebsitebutton"
+        className="defaultWebsiteButton"
         disabled={isSubmitting}
         type="submit">
         {text}
     </button>
+};
+
+export const ServerErrorMessage = ({ status }) => {
+    return status && <div className={'errorMessage'}>
+        {status}
+    </div>;
 };
 
 export default UserInfoForm;

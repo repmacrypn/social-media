@@ -9,9 +9,7 @@ const LoginPage = ({ isAuth, login, captchaURL }) => {
         return <Navigate to='/profile' />;
     }
 
-    return <div>
-        <LoginForm captchaURL={captchaURL} login={login} />
-    </div>;
+    return <LoginForm captchaURL={captchaURL} login={login} />
 };
 
 const mapStateToProps = (state) => {

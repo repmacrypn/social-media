@@ -22,6 +22,8 @@ const InputField = ({ id, name, type,
             break;
         }
 
+        case 'password':
+        case 'email':
         case 'text':
         case 'textarea':
         default:

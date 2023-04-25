@@ -1,4 +1,4 @@
-.defaultWebsitebutton {
+.defaultWebsiteButton {
     display: inline-block;
     box-sizing: border-box;
     padding: 0 15px;
@@ -19,23 +19,23 @@
     touch-action: manipulation;
 }
 
-.defaultWebsitebutton:focus {
+.defaultWebsiteButton:focus {
     box-shadow: 0 0 0 3px rgb(108 117 125 / 50%);
 }
 
-.defaultWebsitebutton:hover {
+.defaultWebsiteButton:hover {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
 }
 
-.defaultWebsitebutton:active {
+.defaultWebsiteButton:active {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
 }
 
-.defaultWebsitebutton:disabled {
+.defaultWebsiteButton:disabled {
     pointer-events: none;
     opacity: 0.65;
 }

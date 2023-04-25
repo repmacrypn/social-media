@@ -11,6 +11,7 @@ const Profile = ({ profilePage, profileStatus, updateProfileStatus, saveProfileP
     }
     return <main className={s.content}>
         <ProfileStatus
+            isOwner={isOwner}
             profileStatus={profileStatus}
             updateProfileStatus={updateProfileStatus}
         />

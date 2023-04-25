@@ -1,6 +1,6 @@
 import React from "react";
 import s from './Post.module.css';
-import defaultSmallUserPhoto from '../../../../resources/images/defaultSmallUserPhoto.jpeg';
+import defaultSmallUserPhoto from '../../../../resources/images/defaultSmallUserPhoto.jpg';
 
 const Post = ({ smallProfilePhoto, likesCount, text }) => {
     return <div className={s.postWrapper}>

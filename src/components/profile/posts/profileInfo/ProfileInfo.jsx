@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css';
 import defaultLargeUserPhoto from '../../../../resources/images/defaultLargeUserPhoto.jpg';
 import UserInfo from "./userInfo/UserInfo";
 import UserInfoForm from "./userInfoForm/UserInfoForm";
+import '../../../../common_styles/inputTypeFile.css';
 
 const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto, saveProfileChanges }) => {
     const [editMode, setEditMode] = useState(false);
@@ -40,7 +41,7 @@ const ProfileInfo = ({ profilePage, isOwner, saveProfilePhoto, saveProfileChange
 
 const InputWrapper = ({ onProfilePhotoChange }) => {
     return <div className={s.inputWrapper}>
-        <label className={s.inputFile}>
+        <label className='inputTypeFile'>
             <input
                 type='file'
                 onChange={onProfilePhotoChange}

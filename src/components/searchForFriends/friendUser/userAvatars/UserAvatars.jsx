@@ -1,6 +1,6 @@
 import React from "react";
 import s from './UserAvatars.module.css';
-import defaultSmallUserPhoto from '../../../../resources/images/defaultSmallUserPhoto.jpeg';
+import defaultSmallUserPhoto from '../../../../resources/images/defaultSmallUserPhoto.jpg';
 import { NavLink } from 'react-router-dom';
 import '../../../../common_styles/button.css';
 
@@ -19,7 +19,7 @@ const UserAvatars = ({ id, follow, unfollow, followed, src,
             />
         </NavLink>
         <button
-            className='defaultWebsitebutton'
+            className="defaultWebsiteButton"
             disabled={followingInProgressArray.some(curId => curId === id)}
             onClick={handleClick}>
             {followed ? 'unfollow' : 'follow'}
