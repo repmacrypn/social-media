@@ -37,17 +37,10 @@ export const setUserLoginData = (data) => ({ type: SET_USER_LOGIN_DATA, data });
 
 const setCaptchaURL = (captchaURL) => ({ type: SET_CAPTCHA_URL, captchaURL });
 
-export const getUserLoginData = () => async (dispatch) => {
-    const data = await authAPI.getAuthUserProfile();
-    if (data.resultCode === 0) {
-        dispatch(setUserLoginData({ ...data.data, isAuth: true }));
-    }
-};
-
 export const login = (email, password, rememberMe, captcha, setStatus, setSubmitting) => async (dispatch) => {
     const data = await authAPI.login(email, password, rememberMe, captcha);
     if (data.resultCode === 0) {
-        dispatch(getUserLoginData());
+        dispatch(setUserLoginData({ id: data.data.userId, email, login: email, isAuth: true }));
         setSubmitting(false);
     } else {
         if (data.resultCode === 10) {

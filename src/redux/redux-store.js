@@ -5,7 +5,6 @@ import sidebarReducer from './sidebarReducer';
 import searchForFriendsReducer from './searchForFriendsReducer';
 import authReducer from './authReducer';
 import thunk from 'redux-thunk';
-import appReducer from './appReducer';
 
 let reducers = combineReducers({
     profileReducer,
@@ -13,7 +12,6 @@ let reducers = combineReducers({
     sidebarReducer,
     searchForFriendsReducer,
     authReducer,
-    appReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
