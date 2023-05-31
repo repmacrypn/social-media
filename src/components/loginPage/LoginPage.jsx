@@ -1,5 +1,5 @@
 import React from "react";
-import { login } from "../../redux/authReducer";
+import { login } from "../../redux/authReducer.ts";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { LoginForm } from "./loginForm/LoginForm";

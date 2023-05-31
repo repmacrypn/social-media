@@ -1,9 +1,9 @@
 import { applyMiddleware, combineReducers, legacy_createStore, compose } from 'redux';
-import profileReducer from './profileReducer';
-import dialogsReducer from './dialogsReducer';
-import sidebarReducer from './sidebarReducer';
-import searchForFriendsReducer from './searchForFriendsReducer';
-import authReducer from './authReducer';
+import profileReducer from './profileReducer.ts';
+import dialogsReducer from './dialogsReducer.ts';
+import sidebarReducer from './sidebarReducer.ts';
+import searchForFriendsReducer from './searchForFriendsReducer.ts';
+import authReducer from './authReducer.ts';
 import thunk from 'redux-thunk';
 
 let reducers = combineReducers({

@@ -4,12 +4,12 @@ import {
     setFollowingInProgressUserId,
     getUsersOnPageChange, getUsersOnPageLoad,
     follow, unfollow
-} from '../../redux/searchForFriendsReducer';
+} from '../../redux/searchForFriendsReducer.ts';
 import {
     getCurrentPage, getFollowingInProgressArray,
     getFriends, getIsFetchingState, getPageCount,
     getTotalCount
-} from '../../redux/usersSelectors';
+} from '../../redux/usersSelectors.ts';
 import SearchForFriends from "./SearchForFriends";
 
 class SearchForFriendsContainer extends React.Component {

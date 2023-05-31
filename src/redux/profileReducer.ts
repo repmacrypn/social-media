@@ -1,6 +1,5 @@
 import { nanoid } from 'nanoid';
 import { profileAPI } from '../api/api';
-
 const ADD_POST = 'profileReducer/ADD_POST';
 const SET_PROFILE_PAGE = 'profileReducer/SET_PROFILE_PAGE';
 const SET_PROFILE_STATUS = 'profileReducer/SET_PROFILE_STATUS';
@@ -16,7 +15,7 @@ const initialState = {
         { id: nanoid(), text: 'Wasup', likesCount: 17 },
     ],
 
-    profilePage: null,
+    profilePage: null as null | object,
 
     profileStatus: '',
 };
