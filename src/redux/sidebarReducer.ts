@@ -1,6 +1,8 @@
 const initialState = {};
 
-const sidebarReducer = (state = initialState, action) => {
+export const InitialStateType = typeof initialState
+
+const sidebarReducer = (state = initialState, action: any) => {
     return state;
 }
 

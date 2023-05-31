@@ -9,7 +9,7 @@ import {
     getCurrentPage, getFollowingInProgressArray,
     getFriends, getIsFetchingState, getPageCount,
     getTotalCount
-} from '../../redux/usersSelectors.ts';
+} from '../../redux/usersSelectors';
 import SearchForFriends from "./SearchForFriends";
 
 class SearchForFriendsContainer extends React.Component {
