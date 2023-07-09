@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# About the application
+## Social media
+**Welcome to the social media application!**
+The social media application is a kind of prototype of a vk website. There you can find new friends,
+keep in touch with them, edit your profile data, share your posts and etc. The app was written to provide 
+the user with the ability to relax and spend his/her free time chilling or chatting with someone else. 
+___
+(Most of the app was written according to the youtube video course based on class components which are not
+relevant nowadays)
+P.S. that was my first project therefore don't judge strictly:)
+___
+**Why exactly this socia media? :sunglasses:**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
++ an easy way to edit user's profile
++ an opportunity to add or remove frinds to/from the list
++ the ability to chat with your friend
 
-## Available Scripts
+Speaking about the app, there are many pages and each of them is responsible for its logic. 
+___
+## *Login: :triumph:
+   1. The user has to login to get access to the profile and dialogs pages
+   2. There is a login validation (inluding captcha)
 
-In the project directory, you can run:
+## Profile page features :dizzy_face:
 
-### `npm start`
+1. The user can edit his/her short information form
+2. There is an ability to change user's status
+3. Sharing posts - great opportunity to be aware of the newest info about everybody
+4. Changing photo - to be more special
+5. The ability to logout at any time is also provided
+    
+## Dialogs page features :neutral_face:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. The user can chat with his/her friends
+2. The relevant messages are provided
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Finding friends page features :hushed:
 
-### `npm test`
+1. The user can follow/unfollow new people to become friends
+2. There is a pagination provided to maintain a simple way to visit more pages
+3. The user can get access to the other user's profiles if he/she's logined
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Other pages will be soon... :cry:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deploy: [https://repmacrypn.github.io/social-media/]
+___
+**Created by Artem Efimovich :smirk:**
